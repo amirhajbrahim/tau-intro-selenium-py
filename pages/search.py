@@ -5,6 +5,8 @@ the page object for the DuckDuckGo search page.
 
 class DuckDuckGoSearchPage:
 
+    SEARCH_INPUT = (By.ID, 'searchbox_input')
+
     def __init__(self, browser):
         self.browser = browser
 
