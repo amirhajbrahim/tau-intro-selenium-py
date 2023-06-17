@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 class DuckDuckGoResultPage:
 
     # Locators
-    RESULT_LINKS = (By.CSS_SELECTOR, 'a.result-title-a')
+    RESULT_LINKS = (By.CSS_SELECTOR, 'a.result__a')
     SEARCH_INPUT = (By.ID, 'search_form_input')
 
     # Initializer
