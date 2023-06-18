@@ -18,9 +18,6 @@ def test_basic_duckduckgo_search(browser):
     # When the user searches for "panda"
     search_page.search(Phrase)
 
-    # Then the search result title contains "panda"
-    assert Phrase in result_page.title()
-
     # And the search result query is "panda"
     assert Phrase == result_page.search_input_value()
 
@@ -28,6 +25,10 @@ def test_basic_duckduckgo_search(browser):
     titles = result_page.result_link_titles()
     matches = [title for title in titles if Phrase.lower() in title.lower()]
     assert len(matches) > 0
+
+    # Then the search result title contains "panda"
+    # (Putting this assertion last guarantees that the page title will be ready)
+    assert Phrase in result_page.title()
 
     # TODO: Remove this exception once the test is complete
     # raise Exception("Incomplete Test")

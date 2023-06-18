@@ -5,6 +5,8 @@ This module contains shared fixtures.
 import pytest
 import selenium.webdriver
 import json
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 
 @pytest.fixture
 def config(scope='session'):
@@ -26,7 +28,7 @@ def browser(config):
 
     # initialize the ChromeDriver instance
     if config['browser'] == 'Firefox':
-        b = selenium.webdriver.Firefox()
+        b = selenium.webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
 
     elif config['browser'] == 'Chrome':
         b = selenium.webdriver.Chrome()
